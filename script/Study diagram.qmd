@@ -86,7 +86,7 @@ ggplot() +
   
    geom_segment(aes(x = index_date, y = 8.5, xend = index_date, yend = 1.25),
                arrow = arrow(length = unit(0.2, "cm")), lineend = "butt", linejoin = "mitre", # add arrow
-               size = 3, alpha = 0.8, color = "#aaaaaa")+
+               size = 3.25, alpha = 0.8, color = "#aaaaaa")+
   
   #Washout window
   geom_rect(aes(xmin = washout_wind_st, xmax = washout_wind_end,
