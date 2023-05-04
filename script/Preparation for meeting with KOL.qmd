@@ -1,0 +1,64 @@
+---
+title: "Study Questions"
+author: "Kent Hanson"
+format: docx
+editor: visual
+---
+
+# Preparation for Meeting with KOL
+
+## Study Rationale
+
+There are no trials comparing TMT versus radical cystectomy, but TMT is promising enough that clinical guidelines consider it to be a viable option for well-selected patients
+
+## Research Question
+
+Among older adults with non-metastatic MIBC, does TMT vs. RC increase the risk of AE, hospitalization. Does it lead to differences in mortality and healthy days at home?
+
+## Questions for Charley/KOL
+
+### Study Cohort
+
+-   Will the population include all non-metastatic muscle-invasive bladder cancer (i.e., stages I-III)?
+    -   Does stage impact the likelihood of receiving TMT vs. RC?
+    -   Prior studies have evaluated stages T2-T4a, N1-3, M01,2
+-   Are there specific age groups that should be excluded?
+    -   For example, do 90 year olds have 0% chance of receiving a certain therapy?
+-   Are there any absolute contraindications to receiving therapy that we should exclude patients based on (e.g., hydronephrosis)
+-   Are there any other features (e.g., specific tumor characteristics) or conditions that are necessary to identifying the target population of non-metastatic MIBC?
+    -   Can these be identified in SEER-Medicare?
+-   Are there specific populations or subgroups (i.e., elderly) that will always receive one therapy over the other?
+    -   If elderly, should we include an upper age limit?
+
+### Exposure Definitions
+
+-   When defining radical cystecomy, should we include both open and robot-assisted procedures. Could outcomes vary by type of procedure?
+-   In patients who receive radical cystectomy, should we include patients regardless of if they received surgery + chemoradiation?
+-   What is the best way to define trimodal therapy? Prior studies (1,2) have defined TMT as transurethral resection of the bladder followed by radiotherapy and chemotherapy in the absence of concomitant codes for radical cystectomy
+    -   Will all three claims reliably show up together? What can we anticipate for grace periods (i.e., allowable gaps between radiotherapy and chemotherapy)?
+    -   Prior studies have classiffied concurrent chemotherapy as within 14d of radiation start date.
+-   Guidelines recommend chemotherapy with cisplatin or fluorouracil and mitomycin C. Should we include patients who receive chemotherapeutic agents falling outside these groups?
+    -   Prior studies (1,2) have created definitions for preferred versus nonprefferred concurrent chemotherapy...
+        -   "We grouped patients receiving National Comprehensive Cancer Network (NCCN)-"preferred" regimens (cisplatin alone, cisplatin and fluorouracil, cisplatin and paclitaxel, mitomycin, and fluorouracil) as pTMT. Any other concurrent chemotherapy was considered nonpreferred, that is, npTMT.)
+-   Is it important to collect radiation doses?
+-   Do we need to consider prior exposure to neoadjuvant chemotherapy
+-   When do patients index into the study based on each exposure? For example if a patient receives transurethral resection + RT + CT, do they index wat the occurrence of the first or the last to occur?
+
+### Bias considerations
+
+-   What variables could influence treatment selection and the risk of the outcome, serving as potential confounders?
+    -   Potential list: age, race/ethnicity, gender, socioeconomic status, geographic location, year of diagnosis, stage at initial diagnosis, comorbidities, frailty index, hospitalizations in the past year, tumor grade, pathologic stage, past treatments, type of chemotherapy?
+
+### Outcomes
+
+-   Are there additional outcomes that are important to quantify that are only relevant to one arm
+-   What is the relevant risk window for the outcome
+
+## Potential Limitations
+
+-   SEER lacks specific on dose or cycle of chemotherapy and dose of radiotherapy administered as well as the extent of transurethral resection
+
+## References
+
+1.  Kumar A, Cherry DR, Courtney PT, et al. Outcomes for Muscle-invasive Bladder Cancer with Radical Cystectomy or Trimodal Therapy in US Veterans. Eur Urol Open Sci. Aug 2021;30:1-10. doi:10.1016/j.euros.2021.05.009
+2.  Williams SB, Shan Y, Jazzar U, et al. Comparing Survival Outcomes and Costs Associated With Radical Cystectomy and Trimodal Therapy for Older Adults With Muscle-Invasive Bladder Cancer. JAMA Surg. Oct 1 2018;153(10):881-889. doi:10.1001/jamasurg.2018.1680

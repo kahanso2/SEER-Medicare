@@ -1,0 +1,165 @@
+---
+title: "Study Design Figure"
+author: "Kent Hanson"
+format: html
+editor: visual
+---
+
+## Study Design Figure
+
+```{r}
+library(ggplot2)
+library(ggforce)
+library(grid)
+library(pBrackets)
+library(RColorBrewer)
+
+?RColorBrewer
+
+# Define time points (days)
+
+
+
+data_start <- -365
+data_end <- 365
+index_date <- 0
+index_date_st <- -5
+index_date_end <- 5
+washout_wind_st <- -183
+washout_wind_end <- -5
+excl_wind_1_st <- -365
+excl_wind_1_end <- -5
+excl_wind_2_st <- -5
+excl_wind_2_end <- 5
+exp_assess_wind_st <- -14
+exp_assess_wind_end <- -5
+covar_assess_wind_1_st <- -365
+covar_assess_wind_1_end <- -5
+covar_assess_wind_2_st <- -5
+covar_assess_wind_2_end <- 5
+follow_up_wind_st <- 5
+follow_up_wind_end <- 365
+
+
+
+# obs_start <- -90
+# obs_end <- 330
+# object_start <- 0
+# object_end <- 300
+# precipitant_start1 <- 25
+# precipitant_end1 <- 100
+# precipitant_start2 <- 200
+# precipitant_end2 <- 275
+# 
+# event_date <- 225
+
+brewer.pal(n = 9, name = "Blues")
+# Color palette: "#F7FBFF" "#DEEBF7" "#C6DBEF" "#9ECAE1" "#6BAED6" "#4292C6" "#2171B5" "#08519C" "#08306B"
+
+# Define plot
+ggplot() + 
+  
+  #Data period: Create labeled line segment to show data start and end points
+  geom_segment(aes(x = data_start, xend = data_end, y = 1, yend = 1, color = "segment"), 
+               size = 2,  color = "black", lineend = "butt", linejoin = "mitre") + 
+  
+  geom_segment(aes(x = data_start, xend = data_start, y = 0.75, yend = 1.25, color = "segment"), 
+               size = 2,  color = "black", lineend = "butt", linejoin = "mitre") + 
+  
+  geom_segment(aes(x = data_end, xend = data_end, y = 0.75, yend = 1.25, color = "segment"), 
+               size = 2,  color = "black", lineend = "butt", linejoin = "mitre") + 
+  
+  geom_text(aes(x = data_start, y = 0.45, label = "Data Start\n(01/01/2016)"),
+            vjust = "center", hjust = "center", color = "black", size = 2.5) +
+  
+  geom_text(aes(x = data_end, y = 0.45, label = "Data End\n(12/31/2021)"),
+            vjust = "center", hjust = "center", color = "black", size = 2.5) +
+  
+  
+  #Cohort entry arrow
+   geom_text(aes(x = index_date, y = 9.5, label = "Cohort Entry Date\n(First Claim for TMT or RC)\nDay 0"),
+            vjust = "center", hjust = "center", color = "black", size = 2.25, fontface = "bold") +
+
+   # geom_rect(aes(xmin = index_date_st, xmax = index_date_end,
+   #              ymin = 8.5, ymax = 1.25), color = "#aaaaaa",
+   #          alpha = 0.8) +
+  
+   geom_segment(aes(x = index_date, y = 8.5, xend = index_date, yend = 1.25),
+               arrow = arrow(length = unit(0.2, "cm")), lineend = "butt", linejoin = "mitre", # add arrow
+               size = 3, alpha = 0.8, color = "#aaaaaa")+
+  
+  #Washout window
+  geom_rect(aes(xmin = washout_wind_st, xmax = washout_wind_end,
+                ymin = 7.5, ymax = 8.5, fill = "Washout Window"), fill = "#08306B",
+            alpha = 0.8) +
+  
+  geom_text(aes(x = washout_wind_st + (((washout_wind_end - washout_wind_st)/2)), y = 8, label = "Washout Window\n(No prior TMT or RC)\n Days [-183,-1]"), 
+            vjust = "center", hjust = "center", color = "white", size = 2.25, fontface = "bold") +
+
+  #Exclusion Assessment Window 1
+  geom_rect(aes(xmin = excl_wind_1_st, xmax = excl_wind_1_end,
+                ymin = 6.25, ymax = 7.25, fill = "Exclusion Window"), fill = "#08519C",
+            alpha = 0.8) +
+  
+  geom_text(aes(x = excl_wind_1_st+ (((excl_wind_1_end - excl_wind_1_st)/2)), y = 6.75, label = "Exclusion Assessment Window\n(No continuous enrollment)\nDays [-365,-1]"), 
+            vjust = "center", hjust = "center", color = "white", size = 2.25, fontface = "bold") +
+
+  #Exclusion Assessment Window 2
+  geom_rect(aes(xmin = excl_wind_2_st, xmax = excl_wind_2_end,
+                ymin = 5, ymax = 6, fill = "Exclusion Window2"), fill = "#08519C",
+            alpha = 0.8) +
+  
+  geom_text(aes(x = excl_wind_1_st+ ((excl_wind_1_end - excl_wind_1_st - 10)), y = 5.5, label = "Exclusion Assessment Window\n(Age <66)\n Days [0,0]"), 
+            vjust = "center", hjust = "right", color = "#08519C", size = 2.25, fontface = "bold") +
+
+  #Covariate Assessment Window 1
+  geom_rect(aes(xmin = covar_assess_wind_1_st, xmax = covar_assess_wind_1_end,
+                ymin = 3.75, ymax = 4.75, fill = "Covariate Window 1"), fill = "#2171B5",
+            alpha = 0.8) +
+  
+  geom_text(aes(x = covar_assess_wind_1_st + (((covar_assess_wind_1_end - covar_assess_wind_1_st)/2)), y = 4.25, label = "Covariate Assessment Window\n(Baseline conditions\nDays [-365,-1]"), 
+            vjust = "center", hjust = "center", color = "white", size = 2.25, fontface = "bold") +
+
+  #Covariate Assessment Window 2
+  geom_rect(aes(xmin = covar_assess_wind_2_st, xmax = covar_assess_wind_2_end,
+                ymin = 2.5, ymax = 3.5, fill = "Covariate Window 2"), fill = "#2171B5",
+            alpha = 0.8) +
+  
+  geom_text(aes(x = covar_assess_wind_2_st + ((covar_assess_wind_2_end - covar_assess_wind_2_st - 15)), y = 3, label = "Covariate Assessment Window\n(Demographic characteristics, cohort entry year)\nDays [0,0]"), 
+            vjust = "center", hjust = "right", color = "#2171B5", size = 2.25, fontface = "bold") +
+
+  #Follow-up Window
+  geom_rect(aes(xmin = follow_up_wind_st, xmax = follow_up_wind_end,
+                ymin = 1.25, ymax = 2.25, fill = "Follow-up Window\nDays [0, Censor]"),
+            alpha = 0.8, fill = "#4292C6") +
+    
+  geom_text(aes(x = follow_up_wind_st + (((follow_up_wind_end - follow_up_wind_st)/2)), y = 1.75, label = "Follow-up Window\nDays [0, Censor]"), 
+            vjust = "center", hjust = "center", color = "white", size = 2.25, fontface = "bold") +
+  
+  
+  #Remove gridlines and axes
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),# remove gridlines
+        axis.line = element_blank(),
+        axis.title = element_blank(),# remove axes
+        axis.text = element_blank(),
+        axis.ticks = element_blank()) +
+
+  geom_text(aes(x = data_start, y = -0.5, label = "1. Concomitant medications, comorbid conditions, evidence of healthcare utilization (outpatient visits\nand recent hospitalizations in year prior to antibiotic initiation)\n2. Censored at earliest of outcome occurrence, plan disenrollment, death or December 15th, 2018"), hjust = "left", color = "black", size = 2.25)
+
+
+
+
+
+
+
+
+  
+  #Scale figure appropriately & remove gridlines/axes/etc.
+  scale_y_continuous(limits = c(-1,3)) + 
+  scale_x_continuous(limits = c(-150, 390)) + 
+  
+ 
+
+```
