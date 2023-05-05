@@ -14,12 +14,7 @@ library(grid)
 library(pBrackets)
 library(RColorBrewer)
 
-?RColorBrewer
-
 # Define time points (days)
-
-
-
 data_start <- -365
 data_end <- 365
 index_date <- 0
@@ -39,19 +34,6 @@ covar_assess_wind_2_st <- -5
 covar_assess_wind_2_end <- 5
 follow_up_wind_st <- 5
 follow_up_wind_end <- 365
-
-
-
-# obs_start <- -90
-# obs_end <- 330
-# object_start <- 0
-# object_end <- 300
-# precipitant_start1 <- 25
-# precipitant_end1 <- 100
-# precipitant_start2 <- 200
-# precipitant_end2 <- 275
-# 
-# event_date <- 225
 
 brewer.pal(n = 9, name = "Blues")
 # Color palette: "#F7FBFF" "#DEEBF7" "#C6DBEF" "#9ECAE1" "#6BAED6" "#4292C6" "#2171B5" "#08519C" "#08306B"
@@ -148,17 +130,6 @@ ggplot() +
 
   geom_text(aes(x = data_start, y = -0.5, label = "1. Concomitant medications, comorbid conditions, evidence of healthcare utilization (outpatient visits\nand recent hospitalizations in year prior to antibiotic initiation)\n2. Censored at earliest of outcome occurrence, plan disenrollment, death or December 15th, 2018"), hjust = "left", color = "black", size = 2.25)
 
-
-
-
-
-
-
-
-  
-  #Scale figure appropriately & remove gridlines/axes/etc.
-  scale_y_continuous(limits = c(-1,3)) + 
-  scale_x_continuous(limits = c(-150, 390)) + 
   
  
 
